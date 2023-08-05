@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text On Image</title>
+
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      .container {
+        height: 100vh;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        position: relative;
+        z-index: 1;
+        background-color: black;
+        background-image: url("./background.jpg");
+        background-size: cover;
+        background-position: top;
+      }
+
+      .container::after,
+      .container::before {
+        position: absolute;
+        content: "New SetUp";
+        left: 50%;
+        bottom: 150px;
+        transform: translateX(-50%) rotate(-5deg);
+        font-size: 90px;
+        font-weight: bold;
+        white-space: nowrap;
+        text-transform: uppercase;
+        letter-spacing: 6px;
+      }
+
+      .container::after {
+        z-index: -1;
+        color: #d3be02;
+        font-family: tahoma;
+      }
+
+      .container::before {
+        -webkit-text-stroke: 3px #d3be02;
+        -webkit-text-fill-color: transparent;
+        z-index: 3;
+        font-family: tahoma;
+      }
+
+      .container img {
+        height: 450px;
+        width: auto;
+        z-index: 2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img src="./person.png" alt="Image not found!" />
+    </div>
+  </body>
+</html>
